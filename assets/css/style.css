@@ -1,3 +1,35 @@
 body{
-  background-color: lightgrey;
+  background-color: #8D86C9;
+  text-align: center;
+}
+.game{
+  background-color: #725AC1;
+  margin-top: 10%;
+  padding: 50px;
+  border-radius: 20px;
+  box-shadow: 10px 10px 0px #404399;
+}
+.heading, #clock{
+  color: #CAC4CE;
+}
+.heading{
+  font-size: 50px;
+}
+#play{
+  color: #F7ECE1;
+}
+#begin{
+  border:none;
+  background-color: #404399;
+  box-shadow: 5px 5px 0px #3c3087;
+  padding:20px;
+  border-radius: 20px;
+  color: #CAC4CE;
+  font-size: 20px;
+}
+#options{
+  font-style: italic;
+}
+#options:hover{
+  cursor: pointer;
 }

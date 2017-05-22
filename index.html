@@ -7,11 +7,30 @@
     <link rel="stylesheet" href="assets/css/style.css">
   </head>
   <body>
-
-
-
-
-
+    <div class="container">
+      <div class="game">
+        <div class="row">
+          <h1 class='heading'>The Javascript Trivia Game</h1>
+        </div>
+        <div id='clock' class="row">
+          <h2>Time Remaining: <span id='time'>0</span></h2>
+        </div>
+        <div id='play' class="row">
+          <h2 id="question" >Question 1 </h2>
+          <div id="options">
+            <h3 id='opt1' data-ref='correct'>Option 1</h3>
+            <h3 id='opt2' data-ref='wrong'>Option 2</h3>
+            <h3 id='opt3' data-ref='wrong'>Option 3</h3>
+            <h3 id='opt4' data-ref='wrong'>Option 4</h3>
+          </div>
+        </div>
+        <div class="start">
+          <button id='begin' data-ref='button'>Start Game</button>
+        </div>
+        <div id="result">
+        </div>
+      </div>
+    </div>
 <script src="https://code.jquery.com/jquery-1.12.4.js" charset="utf-8"></script>
 <script src="assets/javascript/app.js" charset="utf-8"></script>
   </body>
