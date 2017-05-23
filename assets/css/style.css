@@ -10,7 +10,7 @@ body{
   box-shadow: 10px 10px 0px #404399;
 }
 .heading, #clock{
-  color: #CAC4CE;
+  color: white;
 }
 .heading{
   font-size: 50px;
@@ -24,7 +24,7 @@ body{
   box-shadow: 5px 5px 0px #3c3087;
   padding:20px;
   border-radius: 20px;
-  color: #CAC4CE;
+  color: white;
   font-size: 20px;
 }
 #options{

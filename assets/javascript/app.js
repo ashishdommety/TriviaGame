@@ -34,7 +34,7 @@ var questions = [
   },
   {q6:'What is the first step to take before writing a program?',
     a1:'Psuedocode',
-    a2:'declare all the varaibles you might need',
+    a2:'Declare all the varaibles you might need',
     a3:'Google other peoples solutions',
     a4:'Open your text editor'
   },
@@ -56,7 +56,7 @@ var questions = [
     a3:'V4',
     a4:'V9'
   },
-  {q10:'Which company invented bootstrap?',
+  {q10:'Who was the first programmer?',
     a1:'Ada Lovelace',
     a2:'Herman Hollerith',
     a3:'Alan Turing',
@@ -68,12 +68,16 @@ var questions = [
 var counter;
 var rightGuesses;
 var wrongGuesses;
+var unanswered;
+var secondsLeft = parseInt($('#time').text());
+var timer;
 
 //init function (counter, right guesses, wrong guesses, hides and shows )
 function init(){
   counter = 0;
   rightGuesses = 0;
   wrongGuesses = 0;
+  unanswered = 0;
   $('#play').hide();
   $('#clock').hide();
 }
@@ -88,9 +92,11 @@ $('#begin').on('click',function(){
     console.log(counter);
     gamePlay();
 });
-function gamePlay(){
-  questionSelection();
-  $('#opt1, #opt2, #opt3, #opt4, #begin').click(function(){
+
+// NOTE: Errors so far: Everytime the timer runs out of time, the next counter adds 1 extra
+//than it needs too.
+function events(){
+  $('#opt1, #opt2, #opt3, #opt4').click(function(){
     var check = $(this).data('ref');
     if(check === 'correct'){
       console.log('you guessed the right answer!');
@@ -104,38 +110,62 @@ function gamePlay(){
     }
     counter++;
     console.log(counter);
-    end();
-    questionSelection();
-    // questionSelection();
+    checkEnd();
+    clearInterval(timer);
+    secondsLeft = 10;
+    timerStart();
+    //function if time runs out
   });
-
 }
+function gamePlay(){
+  questionSelection();
+  events();
+}
+
 //function to create each set of question and answers
 function questionSelection(){
-  $('#question').text(questions[counter-1]['q'+counter]);
+  clearInterval(timer);
+  timerStart();
+  $('#question').text(counter+'. '+questions[counter-1]['q'+counter]);
   for(var i = 1; i < 5; i++){
     $('#opt'+i).text(questions[counter-1]['a'+i]);
   }
-  // guess();
 }
 
-//function for guesses
-// function guess(){
-//
-// }
 //function for end screen
-function end(){
+function checkEnd(){
   if(counter === questions.length+1){
     $('#play').hide();
     $('#clock').hide();
     $('#result').append('<h2>Correct Guesses: '+ rightGuesses +'</h2>');
     $('#result').append('<h2>Wrong Guesses: '+ wrongGuesses +'</h2>');
+    $('#result').append('<h2>unanswered: '+ unanswered +'</h2>');
     console.log('game ended');
   }
+  else{
+    questionSelection();
+  }
 }
-//timer
-var timer = setTimeout(function(){
-  
-},1000);
 
+//timer
+function timerStart(){
+   timer = setInterval(function(){
+    if(secondsLeft === 0){
+      console.log('you ran out of time!');
+      counter++;
+      console.log(counter);
+      secondsLeft = 10;
+      unanswered++;
+      checkEnd();
+    }
+    $('#time').text(secondsLeft);
+    secondsLeft--;
+  },1000);
+
+}
+// function rightAnswer(){
+//
+// }
+
+//end
 });
