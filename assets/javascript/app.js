@@ -63,6 +63,7 @@ var questions = [
     a4:' Konrad Zuse'
   }
 ]
+
 //variables
 var counter;
 var rightGuesses;
@@ -78,27 +79,17 @@ function init(){
 }
 init();
 
-    //function for start screen
+//function for start screen
 $('#begin').on('click',function(){
     $('#play').show();
     $('#clock').show();
     $('.start').hide();
     counter++;
     console.log(counter);
-    questionSelection();
+    gamePlay();
 });
-//function to create each set of question and answers
-function questionSelection(){
-  end();
-  $('#question').text(questions[counter-1]['q'+counter]);
-  for(var i = 1; i < 5; i++){
-    $('#opt'+i).text(questions[counter-1]['a'+i]);
-  }
-  guess();
-}
-
-//function for guesses
-function guess(){
+function gamePlay(){
+  questionSelection();
   $('#opt1, #opt2, #opt3, #opt4, #begin').click(function(){
     var check = $(this).data('ref');
     if(check === 'correct'){
@@ -113,9 +104,25 @@ function guess(){
     }
     counter++;
     console.log(counter);
+    end();
     questionSelection();
+    // questionSelection();
   });
+
 }
+//function to create each set of question and answers
+function questionSelection(){
+  $('#question').text(questions[counter-1]['q'+counter]);
+  for(var i = 1; i < 5; i++){
+    $('#opt'+i).text(questions[counter-1]['a'+i]);
+  }
+  // guess();
+}
+
+//function for guesses
+// function guess(){
+//
+// }
 //function for end screen
 function end(){
   if(counter === questions.length+1){
@@ -127,6 +134,8 @@ function end(){
   }
 }
 //timer
-
+var timer = setTimeout(function(){
+  
+},1000);
 
 });
