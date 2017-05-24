@@ -18,7 +18,7 @@ body{
 #play{
   color: #F7ECE1;
 }
-#begin{
+#begin, #next{
   border:none;
   background-color: #404399;
   box-shadow: 5px 5px 0px #3c3087;
@@ -32,4 +32,7 @@ body{
 }
 #options:hover{
   cursor: pointer;
+}
+.white{
+  color:white;
 }
