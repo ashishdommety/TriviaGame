@@ -112,7 +112,7 @@ function events(){
     console.log(counter);
     checkEnd();
     clearInterval(timer);
-    secondsLeft = 10;
+    secondsLeft = 30;
     timerStart();
     //function if time runs out
   });
@@ -154,7 +154,7 @@ function timerStart(){
       console.log('you ran out of time!');
       counter++;
       console.log(counter);
-      secondsLeft = 10;
+      secondsLeft = 30;
       unanswered++;
       checkEnd();
     }
