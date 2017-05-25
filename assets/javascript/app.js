@@ -3,117 +3,95 @@ $(document).ready(function() {
   //object of arrays with the questions and options
   var questions = [{
       q1: 'What does HTML stand for?',
-      a1: 'Hypertext Markup Language',
-      a2: 'Hypertext Margin Language',
-      a3: 'Historic Markup Literacy',
-      a4: 'Historic Makeup Language'
+      o1: 'Hypertext Markup Language',
+      o2: 'Hypertext Margin Language',
+      o3: 'Historic Markup Literacy',
+      o4: 'Historic Makeup Language',
+      a1:'HTML stands for Hypertext Markup Language',
+      link:'https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif'
     },
     {
       q2: 'Who created Javascript?',
-      a1: 'Brendan Eich',
-      a2: 'John Resig',
-      a3: 'James Gosling',
-      a4: 'Bjarne Stroustrup'
+      o1: 'Brendan Eich',
+      o2: 'John Resig',
+      o3: 'James Gosling',
+      o4: 'Bjarne Stroustrup',
+      a2:'Brendan Eich created Javascript in a span of 10 days in May 1995',
+      link:'http://i.perezhilton.com/wp-content/uploads/2014/04/brendan-eich-edit.gif'
     },
     {
       q3: 'Which of these is not a CSS framework?',
-      a1: 'Angular',
-      a2: 'LESS',
-      a3: 'Bulma',
-      a4: 'SASS'
+      o1: 'Angular',
+      o2: 'LESS',
+      o3: 'Bulma',
+      o4: 'SASS',
+      a3:'Angular JS is not a CSS framework, but it is a Javascript framework used to create single page applications',
+      link:'https://media.giphy.com/media/FyDAf2bjf04zC/giphy.gif'
     },
     {
       q4: 'Which company created bootstrap?',
-      a1: 'Twitter',
-      a2: 'Facebook',
-      a3: 'Google',
-      a4: 'Whatsapp'
+      o1: 'Twitter',
+      o2: 'Facebook',
+      o3: 'Google',
+      o4: 'Whatsapp',
+      a4:'Mark Otto and Jacob Thorton created bootstrap at Twitter, and originally called it "Twitter Blueprint" ',
+      link:'https://media.giphy.com/media/jut7ta6lQwRkQ/giphy.gif'
     },
     {
       q5: 'Which is these is wrong syntax?',
-      a1: 'click.element = function(){code goes here}',
-      a2: "$(element).on('click', function(){code goes here})",
-      a3: 'variable.onclick = function(){code goes here}',
-      a4: '$(element).click(function(){code goes here})'
+      o1: 'click.element = function(){code goes here}',
+      o2: "$(element).on('click', function(){code goes here})",
+      o3: 'variable.onclick = function(){code goes here}',
+      o4: '$(element).click(function(){code goes here})',
+      a5:'"click.element = function(){code goes here}" is the wrong syntax to write a click-function',
+      link:'http://33.media.tumblr.com/5d9d9bdc0b79f41afcc97ebd1c91a8e5/tumblr_n5bsovtIt01spa2yxo1_500.gif'
     },
     {
       q6: 'What is the first step to take before writing a program?',
-      a1: 'Psuedocode',
-      a2: 'Declare all the varaibles you might need',
-      a3: 'Google other peoples solutions',
-      a4: 'Open your text editor'
+      o1: 'Psuedocode',
+      o2: 'Declare all the varaibles you might need',
+      o3: 'Google other peoples solutions',
+      o4: 'Open your text editor',
+      a6:'The first step to take before writing a program, is to Psuedocode. It is an informal language that helps programmers develop algorithms',
+      link:'https://media.giphy.com/media/6fL4ZqndWKpOM/giphy.gif'
     },
     {
       q7: 'What is the purpose of SSL?',
-      a1: 'Security',
-      a2: 'Performance',
-      a3: 'Security and Performance',
-      a4: 'For responsiveness'
+      o1: 'Security',
+      o2: 'Performance',
+      o3: 'Security and Performance',
+      o4: 'For responsiveness',
+      a7:'SSL (Secure Sockets Layer) is the standard security technology for establishing an encrypted link between a web server and a browser.',
+      link:'https://media.giphy.com/media/URshp9qjwBTfa/giphy.gif'
     },
     {
       q8: 'Which of these is not a Javascript Framework?',
-      a1: 'Haml',
-      a2: 'Angular',
-      a3: 'React',
-      a4: 'Vue'
+      o1: 'Haml',
+      o2: 'Angular',
+      o3: 'React',
+      o4: 'Vue',
+      a8:'Haml is a markup language that’s used to cleanly and simply describe the HTML of any web document without the use of inline code.',
+      link:'https://forum.sublimetext.com/uploads/default/optimized/3X/0/3/03ed695cf7cb78f2e3b019750f069db1693e38d3_1_690x300.gif'
     },
     {
       q9: 'Which engine does Google Chrome run on?',
-      a1: 'V8',
-      a2: 'V6',
-      a3: 'V4',
-      a4: 'V9'
+      o1: 'V8',
+      o2: 'V6',
+      o3: 'V4',
+      o4: 'V9',
+      a9:"V8 is Google's open source high-performance JavaScript engine and it is written in C++ ",
+      link:'https://media.giphy.com/media/ymKIz3zBieFNK/giphy.gif'
     },
     {
       q10: 'Who was the first programmer?',
-      a1: 'Ada Lovelace',
-      a2: 'Herman Hollerith',
-      a3: 'Alan Turing',
-      a4: ' Konrad Zuse'
+      o1: 'Ada Lovelace',
+      o2: 'Herman Hollerith',
+      o3: 'Alan Turing',
+      o4: ' Konrad Zuse',
+      a10:"Ada Lovelace was the first to recognise that the machine had applications beyond pure calculation, and created the first algorithm intended to be carried out by such a machine. ",
+      link:'http://sydneypadua.com/2dgoggles/wp-content/uploads/2015/10/ada200thiconbig1.gif'
     }
   ]
-
-  var answerDescip = [{
-    ad1:'HTML stands for Hypertext Markup Language',
-    link:'https://media.giphy.com/media/sWrDT2OqxJ3Fu/giphy.gif'
-  },
-  {
-    ad2:'Brendan Eich created Javascript in a span of 10 days in May 1995',
-    link:'http://i.perezhilton.com/wp-content/uploads/2014/04/brendan-eich-edit.gif'
-  },
-  {
-    ad3:'Angular JS is not a CSS framework, but it is a Javascript framework used to create single page applications',
-    link:'https://media.giphy.com/media/FyDAf2bjf04zC/giphy.gif'
-  },
-  {
-    ad4:'Mark Otto and Jacob Thorton created bootstrap at Twitter, and originally called it "Twitter Blueprint" ',
-    link:'https://media.giphy.com/media/jut7ta6lQwRkQ/giphy.gif'
-  },
-  {
-    ad5:'"click.element = function(){code goes here}" is the wrong syntax to write a click-function',
-    link:'http://33.media.tumblr.com/5d9d9bdc0b79f41afcc97ebd1c91a8e5/tumblr_n5bsovtIt01spa2yxo1_500.gif'
-  },
-  {
-    ad6:'The first step to take before writing a program, is to Psuedocode. It is an informal language that helps programmers develop algorithms',
-    link:'https://media.giphy.com/media/6fL4ZqndWKpOM/giphy.gif'
-  },
-  {
-    ad7:'SSL (Secure Sockets Layer) is the standard security technology for establishing an encrypted link between a web server and a browser.',
-    link:'https://media.giphy.com/media/URshp9qjwBTfa/giphy.gif'
-  },
-  {
-    ad8:'Haml is a markup language that’s used to cleanly and simply describe the HTML of any web document without the use of inline code.',
-    link:'https://forum.sublimetext.com/uploads/default/optimized/3X/0/3/03ed695cf7cb78f2e3b019750f069db1693e38d3_1_690x300.gif'
-  },
-  {
-    ad9:"V8 is Google's open source high-performance JavaScript engine and it is written in C++ ",
-    link:'https://media.giphy.com/media/ymKIz3zBieFNK/giphy.gif'
-  },
-  {
-    ad10:"Ada Lovelace was the first to recognise that the machine had applications beyond pure calculation, and created the first algorithm intended to be carried out by such a machine. ",
-    link:'http://sydneypadua.com/2dgoggles/wp-content/uploads/2015/10/ada200thiconbig1.gif'
-  }
-]
 
   //variables
   var counter;
@@ -127,6 +105,8 @@ $(document).ready(function() {
   var wrong;
   var bgm;
   var begin;
+  var beep;
+  var timesUp;
 
   //initialize function
   function init() {
@@ -197,7 +177,7 @@ $(document).ready(function() {
     timerStart();
     $('#question').text(counter + '. ' + questions[counter - 1]['q' + counter]);
     for (var i = 1; i < 5; i++) {
-      $('#opt' + i).text(questions[counter - 1]['a' + i]);
+      $('#opt' + i).text(questions[counter - 1]['o' + i]);
     }
     shuffleAnswers();
   }
@@ -211,8 +191,8 @@ $(document).ready(function() {
   }
   //function to display the picture a write up about the correct answer
   function writeUp(){
-    $('#description').text( answerDescip[counter-1]['ad' + counter]);
-    $('#pic').attr('src',answerDescip[counter-1]['link']);
+    $('#description').text( questions[counter-1]['a' + counter]);
+    $('#pic').attr('src',questions[counter-1]['link']);
   }
 
   //function for end screen
@@ -237,6 +217,7 @@ $(document).ready(function() {
   function timerStart() {
     timer = setInterval(function() {
       if (secondsLeft === 0) {
+        timesUp.play();
         $('#play').hide();
         $('#check').show();
         unAnswered();
@@ -244,6 +225,9 @@ $(document).ready(function() {
         clearInterval(timer);
         secondsLeft = 30;
         checkEnd();
+      }
+      if(secondsLeft <= 5){
+        beep.play();
       }
       $('#time').text(secondsLeft);
       secondsLeft--;
@@ -289,10 +273,15 @@ $(document).ready(function() {
    //sound on game start
    begin = new Audio();
    begin.src = 'assets/sounds/begin.wav';
+
+   beep = new Audio();
+   beep.src = 'assets/sounds/beep.wav';
+
+   timesUp = new Audio();
+   timesUp.src = 'assets/sounds/timeup.mp3';
  }
   //end
 });
 
-// TODO: Need to shuffle options so that the first one isn't always correct
-// TODO: figure out how i got the timer to pause itself!
-// TODO: jumping two questions at a time after reset
+// TODO: time out sound
+// TODO: effects for when time is running out
