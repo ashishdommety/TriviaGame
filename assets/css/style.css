@@ -18,7 +18,7 @@ body{
 #play{
   color: #F7ECE1;
 }
-#begin, #next{
+#begin, #next, #restart{
   border:none;
   background-color: #404399;
   box-shadow: 5px 5px 0px #3c3087;
@@ -36,3 +36,5 @@ body{
 .white{
   color:white;
 }
+
+/* TODO: Change size so that it fits whole screen */
