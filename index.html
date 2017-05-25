@@ -1,47 +1,58 @@
 <!DOCTYPE html>
 <html>
-  <head>
-    <meta charset="utf-8">
-    <title></title>
-    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
-    <link rel="stylesheet" href="assets/css/style.css">
-  </head>
-  <body>
-    <div class="container">
-      <div class="game">
-        <div class="row">
-          <h1 class='heading'>The Javascript Trivia Game</h1>
-        </div>
-        <div id='clock' class="row">
-          <h2>Time Remaining: <span id='time'>30</span></h2>
-        </div>
-        <div id='play' class="row">
-          <h2 id="question" >Question 1 </h2>
-          <div id="options">
-            <h3 id='opt1' data-ref='correct'>Option 1</h3>
-            <h3 id='opt2' data-ref='wrong'>Option 2</h3>
-            <h3 id='opt3' data-ref='wrong'>Option 3</h3>
-            <h3 id='opt4' data-ref='wrong'>Option 4</h3>
-          </div>
-        </div>
-        <div class="start">
-          <button id='begin' data-ref='button'>Start Game</button>
-        </div>
-        <div id="result" class='white'>
-          <button id="restart" data-ref='restart'>
-            Play Again!
-          </button>
-        </div>
-        <div id='check' class='white'>
-          <h2  id='answer'></h2>
-          <img id='pic' src="" alt="">
-          <h3 id='description'></h3>
-            <button id='next' data-ref='next'>Next</button>
-        </div>
 
+<head>
+  <meta charset="utf-8">
+  <title></title>
+  <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/3.3.7/css/bootstrap.min.css">
+  <link href="https://fonts.googleapis.com/css?family=Barrio|Indie+Flower|Dosis" rel="stylesheet">
+  <link rel="stylesheet" href="assets/css/style.css">
+</head>
+
+<body>
+  <div class="container">
+    <div class="game">
+      <div class="row">
+        <h1 class='heading'>The Javascript Trivia Game</h1>
+      </div>
+      <hr>
+      <div id='clock' class="row">
+        <h2>Time Remaining: <span id='time'>30</span></h2>
+      </div>
+      <div id='play' class="row">
+        <h2 id="question">Question 1 </h2>
+        <div id="options">
+          <h3 id='opt1' data-ref='correct'>Option 1</h3>
+          <h3 id='opt2' data-ref='wrong'>Option 2</h3>
+          <h3 id='opt3' data-ref='wrong'>Option 3</h3>
+          <h3 id='opt4' data-ref='wrong'>Option 4</h3>
+        </div>
+      </div>
+      <div class="start">
+        <button id='begin' data-ref='button'>Start Game</button>
+      </div>
+      <div id="result" class='white'>
+        <h2>Correct: <span id='correct'></span></h2>
+        <h2>Wrong: <span id='wrong'></span></h2>
+        <h2>Unanswered: <span id='noTime'></span></h2>
+        <button id="restart" data-ref='restart'>
+            Play Again!
+        </button>
+      </div>
+      <div id='check' class='white row'>
+        <div class="col-md-6">
+          <img id='pic' src="" alt="">
+        </div>
+        <div class="col-md-6">
+            <h2 id='answer'></h2>
+          <h3 id='description'></h3>
+          <button id='next' data-ref='next'>Next</button>
+        </div>
       </div>
     </div>
-<script src="https://code.jquery.com/jquery-1.12.4.js" charset="utf-8"></script>
-<script src="assets/javascript/app.js" charset="utf-8"></script>
-  </body>
+  </div>
+  <script src="https://code.jquery.com/jquery-1.12.4.js" charset="utf-8"></script>
+  <script src="assets/javascript/app.js" charset="utf-8"></script>
+</body>
+
 </html>

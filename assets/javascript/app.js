@@ -122,8 +122,13 @@ $(document).ready(function() {
   var unAnswered;
   var secondsLeft = parseInt($('#time').text());
   var timer;
+  //sound variables
+  var correct;
+  var wrong;
+  var bgm;
+  var begin;
 
-  //init function (counter, right guesses, wrong guesses, hides and shows )
+  //initialize function (counter, right guesses, wrong guesses, hides and shows etc )
   function init() {
     counter = 0;
     rightGuesses = 0;
@@ -134,11 +139,13 @@ $(document).ready(function() {
     $('#check').hide();
     $('#result').hide();
     $('.start').show();
+    sounds();
   }
   init();
 
   //function for start screen
   $('#begin').on('click', function() {
+    begin.play();
     $('#play').show();
     $('#clock').show();
     $('.start').hide();
@@ -146,10 +153,7 @@ $(document).ready(function() {
     console.log(counter);
     gamePlay();
   });
-
-
-
-
+//the click events
   function events() {
     $('#opt1, #opt2, #opt3, #opt4, #next').click(function() {
       var check = $(this).data('ref');
@@ -157,12 +161,8 @@ $(document).ready(function() {
       $('#check').show();
       if (check === 'correct') {
         rightAnswer();
-        // console.log('you guessed the right answer!');
-        // rightGuesses++;
-        //function if correct guess
       } else if (check === 'wrong') {
         wrongAnswer();
-        //function if wrong guess
       }
       else if(check === 'next'){
         $('#play').show();
@@ -174,15 +174,9 @@ $(document).ready(function() {
         timerStart();
         $('#check').hide();
       }
-      //function if time runs out
     });
   }
-
-  $('#restart').on('click',function(){
-    console.log('restart clicked');
-    init();
-  })
-
+//function for game play
   function gamePlay() {
     questionSelection();
     events();
@@ -197,6 +191,7 @@ $(document).ready(function() {
       $('#opt' + i).text(questions[counter - 1]['a' + i]);
     }
   }
+  //function to display the picture a write up about the correct answer
   function writeUp(){
     $('#description').text( answerDescip[counter-1]['ad' + counter]);
     $('#pic').attr('src',answerDescip[counter-1]['link']);
@@ -210,10 +205,14 @@ $(document).ready(function() {
       $('#play').hide();
       $('#clock').hide();
       $('#check').hide();
-      $('#result').prepend('<h2>Correct Guesses: ' + rightGuesses + '</h2>');
-      $('#result').prepend('<h2>Wrong Guesses: ' + wrongGuesses + '</h2>');
-      $('#result').prepend('<h2>Unanswered: ' + noAnswer + '</h2>');
+      $('#correct').text(rightGuesses);
+      $('#wrong').text(wrongGuesses);
+      $('#noTime').text(noAnswer);
       $('#result').addClass('white');
+      $('#restart').on('click',function(){
+        console.log('restart clicked');
+        init();
+      })
       console.log('game ended');
     } else {
       questionSelection();
@@ -236,8 +235,10 @@ $(document).ready(function() {
       secondsLeft--;
     }, 1000);
   }
-
+//function for right answer
   function rightAnswer(){
+    correct.currentTime = 0;
+    correct.play();
     clearInterval(timer);
     secondsLeft = 30;
     $('#answer').text('Correct!');
@@ -245,8 +246,10 @@ $(document).ready(function() {
     console.log('you guessed the right answer!');
     rightGuesses++;
   }
-
+// function for wrong answer
   function wrongAnswer(){
+    wrong.currentTime = 0;
+    wrong.play();
     clearInterval(timer);
     secondsLeft = 30;
     $('#answer').text('Wrong..');
@@ -254,17 +257,29 @@ $(document).ready(function() {
     console.log('you guessed the wrong answer!');
     wrongGuesses++;
   }
-
+//function for Unanswered
   function unAnswered(){
     $('#answer').text('You ran out of time!');
     writeUp();
     console.log('you ran out of time!');
     noAnswer++;
   }
+  //function with all the sound sources
+ function sounds(){
+   //Sound on correct
+   correct = new Audio();
+   correct.src = '../assets/sounds/correct.mp3';
+   //sound on wrong
+   wrong = new Audio();
+   wrong.src = '../assets/sounds/wrong.wav';
+   //sound on game start
+   begin = new Audio();
+   begin.src = '../assets/sounds/begin.wav';
 
+ }
   //end
 });
 
 // TODO: Need to shuffle options so that the first one isn't always correct
-// TODO: figure out how you got the timer to pause itself!
+// TODO: figure out how i got the timer to pause itself!
 // TODO: jumping two questions at a time after reset

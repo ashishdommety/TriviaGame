@@ -4,16 +4,18 @@ body{
 }
 .game{
   background-color: #725AC1;
-  margin-top: 10%;
+  margin-top: 5%;
   padding: 50px;
   border-radius: 20px;
   box-shadow: 10px 10px 0px #404399;
+  font-family: 'Dosis', sans-serif;
 }
 .heading, #clock{
   color: white;
 }
 .heading{
   font-size: 50px;
+  font-family: 'Barrio', cursive;
 }
 #play{
   color: #F7ECE1;
@@ -26,9 +28,20 @@ body{
   border-radius: 20px;
   color: white;
   font-size: 20px;
+  font-family: 'Indie Flower', cursive;
+}
+#begin:hover,#next:hover,#restart:hover{
+  position: relative;
+  top:5px;
+  left:5px;
+  box-shadow: none;
+  border: 1px solid #3c3087;
+}
+#begin:focus,#next:focus,#restart:focus{
+  outline: none;
 }
 #options{
-  font-style: italic;
+  background-color:
 }
 #options:hover{
   cursor: pointer;
@@ -36,5 +49,18 @@ body{
 .white{
   color:white;
 }
-
-/* TODO: Change size so that it fits whole screen */
+#pic{
+  width:80%;
+  height:80%;
+}
+#opt1,#opt2,#opt3,#opt4{
+  border: 2px solid;
+  padding:5px;
+  border-radius: 20px;
+  background-color: #463a8e;
+  margin-left: 15%;
+  margin-right: 15%;
+}
+#opt1:hover,#opt2:hover,#opt3:hover,#opt4:hover{
+  background-color: #725AC1;
+}
