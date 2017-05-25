@@ -128,8 +128,26 @@ $(document).ready(function() {
   var bgm;
   var begin;
 
-  //initialize function (counter, right guesses, wrong guesses, hides and shows etc )
+  //initialize function
   function init() {
+    resetVars();
+    sounds();
+    events();
+    //function for start screen
+    $('#begin').on('click', function() {
+      begin.play();
+      $('#play').show();
+      $('#clock').show();
+      $('.start').hide();
+      counter++;
+      console.log(counter);
+      gamePlay();
+    });
+  }
+  init();
+  //function to reset variables and hide/show
+  function resetVars(){
+    clearInterval(timer);
     counter = 0;
     rightGuesses = 0;
     wrongGuesses = 0;
@@ -139,23 +157,11 @@ $(document).ready(function() {
     $('#check').hide();
     $('#result').hide();
     $('.start').show();
-    sounds();
   }
-  init();
 
-  //function for start screen
-  $('#begin').on('click', function() {
-    begin.play();
-    $('#play').show();
-    $('#clock').show();
-    $('.start').hide();
-    counter++;
-    console.log(counter);
-    gamePlay();
-  });
 //the click events
   function events() {
-    $('#opt1, #opt2, #opt3, #opt4, #next').click(function() {
+    $('#opt1, #opt2, #opt3, #opt4').on('click',function() {
       var check = $(this).data('ref');
       $('#play').hide();
       $('#check').show();
@@ -164,22 +170,25 @@ $(document).ready(function() {
       } else if (check === 'wrong') {
         wrongAnswer();
       }
-      else if(check === 'next'){
-        $('#play').show();
-        counter++;
-        console.log(counter);
-        checkEnd();
-        clearInterval(timer);
-        secondsLeft = 30;
-        timerStart();
-        $('#check').hide();
-      }
+    });
+    $('#next').on('click',function(){
+      $('#play').show();
+      counter++;
+      console.log(counter);
+      checkEnd();
+      clearInterval(timer);
+      secondsLeft = 30;
+      timerStart();
+      $('#check').hide();
+    });
+    $('#restart').on('click',function(){
+      console.log('restart clicked');
+      resetVars();
     });
   }
 //function for game play
   function gamePlay() {
     questionSelection();
-    events();
   }
 
   //function to create each set of question and answers
@@ -190,6 +199,15 @@ $(document).ready(function() {
     for (var i = 1; i < 5; i++) {
       $('#opt' + i).text(questions[counter - 1]['a' + i]);
     }
+    shuffleAnswers();
+  }
+  function shuffleAnswers(){
+      var parent = $('#options');
+      var answers = parent.children();
+      while(answers.length){
+        var change = answers.splice(Math.floor(Math.random() * answers.length),1);
+        parent.append(change[0]);
+      }
   }
   //function to display the picture a write up about the correct answer
   function writeUp(){
@@ -209,10 +227,6 @@ $(document).ready(function() {
       $('#wrong').text(wrongGuesses);
       $('#noTime').text(noAnswer);
       $('#result').addClass('white');
-      $('#restart').on('click',function(){
-        console.log('restart clicked');
-        init();
-      })
       console.log('game ended');
     } else {
       questionSelection();
@@ -275,7 +289,6 @@ $(document).ready(function() {
    //sound on game start
    begin = new Audio();
    begin.src = '../assets/sounds/begin.wav';
-
  }
   //end
 });
