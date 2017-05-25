@@ -282,13 +282,13 @@ $(document).ready(function() {
  function sounds(){
    //Sound on correct
    correct = new Audio();
-   correct.src = '../assets/sounds/correct.mp3';
+   correct.src = 'assets/sounds/correct.mp3';
    //sound on wrong
    wrong = new Audio();
-   wrong.src = '../assets/sounds/wrong.wav';
+   wrong.src = 'assets/sounds/wrong.wav';
    //sound on game start
    begin = new Audio();
-   begin.src = '../assets/sounds/begin.wav';
+   begin.src = 'assets/sounds/begin.wav';
  }
   //end
 });
