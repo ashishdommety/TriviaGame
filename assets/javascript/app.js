@@ -107,6 +107,7 @@ $(document).ready(function() {
   var begin;
   var beep;
   var timesUp;
+  var droplet;
 
   //initialize function
   function init() {
@@ -125,6 +126,7 @@ $(document).ready(function() {
     });
   }
   init();
+
   //function to reset variables and hide/show
   function resetVars(){
     clearInterval(timer);
@@ -152,6 +154,7 @@ $(document).ready(function() {
       }
     });
     $('#next').on('click',function(){
+      droplet.play();
       $('#play').show();
       counter++;
       console.log(counter);
@@ -162,6 +165,7 @@ $(document).ready(function() {
       $('#check').hide();
     });
     $('#restart').on('click',function(){
+      droplet.play();
       console.log('restart clicked');
       resetVars();
     });
@@ -279,6 +283,9 @@ $(document).ready(function() {
 
    timesUp = new Audio();
    timesUp.src = 'assets/sounds/timeup.mp3';
+
+   droplet = new Audio();
+   droplet.src = 'assets/sounds/droplet.wav';
  }
   //end
 });
