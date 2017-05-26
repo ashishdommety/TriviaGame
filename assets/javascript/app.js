@@ -289,6 +289,3 @@ $(document).ready(function() {
  }
   //end
 });
-
-// TODO: time out sound
-// TODO: effects for when time is running out
